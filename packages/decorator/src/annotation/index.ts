@@ -6,7 +6,7 @@ export * from './provide';
 export * from './schedule';
 export * from './pipeline';
 export * from './validate';
-export * from './rule';
+// export * from './rule';
 export * from './aspect';
 export * from './autoload';
 export * from './queue';
