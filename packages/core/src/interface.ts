@@ -224,7 +224,6 @@ export const HTTP_SERVER_KEY = '_midway_http_server';
 export interface IContainerConfiguration {
   namespace: string;
   packageName: string;
-  newVersion: boolean;
   addLoadDir(dir: string);
   addImports(imports: string[], baseDir?: string);
   addImportObjects(importObjects: Record<string, unknown>);
