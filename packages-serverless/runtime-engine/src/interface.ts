@@ -98,7 +98,8 @@ export interface ServerlessLoggerOptions extends LoggerOptions {
 }
 
 export interface LoggerFactory {
-  createLogger(options?);
+  createLogger(...args);
+  close();
 }
 
 export interface FunctionEvent {

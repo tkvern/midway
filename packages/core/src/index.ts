@@ -49,4 +49,3 @@ export { MidwayEnvironmentService } from './service/environmentService';
 export { MidwayInformationService } from './service/informationService';
 export * from './logger';
 export * from './util/contextUtil';
-

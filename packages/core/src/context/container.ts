@@ -1,11 +1,18 @@
 import {
   classNamed,
-  CONFIGURATION_KEY, generateProvideId,
-  getClassMetadata, IComponentInfo,
+  CONFIGURATION_KEY,
+  generateProvideId,
+  getClassMetadata,
+  IComponentInfo,
   InjectionConfigurationOptions,
   isClass,
-  isFunction, LIFECYCLE_IDENTIFIER_PREFIX, listModule,
-  MAIN_MODULE_KEY, saveModule, saveProviderId, ScopeEnum
+  isFunction,
+  LIFECYCLE_IDENTIFIER_PREFIX,
+  listModule,
+  MAIN_MODULE_KEY,
+  saveModule,
+  saveProviderId,
+  ScopeEnum,
 } from '@midwayjs/decorator';
 import { FunctionalConfiguration } from '../functional/configuration';
 import * as util from 'util';
@@ -14,11 +21,9 @@ import { BaseApplicationContext } from './applicationContext';
 const debug = util.debuglog('midway:container:configuration');
 
 class ContainerConfiguration {
-
   private namespace;
 
-  constructor(readonly container) {
-  }
+  constructor(readonly container) {}
 
   load(module) {
     // 可能导出多个
@@ -84,12 +89,14 @@ class ContainerConfiguration {
             this.container.getCurrentEnv()
           )
         ) {
-          subContainerConfiguration.load((importPackage as IComponentInfo).component);
+          subContainerConfiguration.load(
+            (importPackage as IComponentInfo).component
+          );
         }
       } else {
         throw new Error(
           'import module not a midway component, module =' +
-          util.inspect(importPackage)
+            util.inspect(importPackage)
         );
       }
     }
@@ -147,9 +154,7 @@ class ContainerConfiguration {
   }
 }
 
-export class MidwayContainer
-  extends BaseApplicationContext {
-
+export class MidwayContainer extends BaseApplicationContext {
   load(module) {
     const configuration = this.createConfiguration();
     configuration.load(module);
