@@ -26,6 +26,18 @@ export const isDebug = () => {
 };
 
 /**
+ * get handler function with file path and method name
+ * @param filePath
+ * @param handler
+ */
+export const getHandlerMethod = (filePath, handler) => {
+  const mod = require(filePath);
+  if (mod && mod[handler]) {
+    return mod[handler].bind(mod);
+  }
+};
+
+/**
  * This is an assign function that copies full descriptors
  * @param {Object} target 合并的目标对象
  * @param {Object} sources 合并的原对象
